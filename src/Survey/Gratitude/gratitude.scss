@@ -2,6 +2,7 @@
 
 .gratitude {
   display: grid;
+  margin: 0 auto;
   @media (min-width: $mobileDevice) {
     max-width: $mobileDevice;
     grid-template-rows: 0.1fr 0.1fr;
@@ -73,4 +74,8 @@
 .gratitude__exit-link:hover {
   background-color: $deepBlue;
   color: $pureBlack;
+}
+
+.gratitude__exit-link:active {
+  color: $pureWhite;
 }

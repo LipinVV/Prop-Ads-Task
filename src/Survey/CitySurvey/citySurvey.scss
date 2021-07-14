@@ -130,9 +130,10 @@
 
 .city-survey__feedback-survey-button,
 .city-survey__feedback-ending {
+  text-decoration: none;
   cursor: pointer;
-  background-color: $pureBlack;
-  color: $pureWhite;
+  background-color: $green;
+  color: $pureBlack;
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid $pureWhite;
@@ -150,15 +151,12 @@
 }
 
 .city-survey__feedback-survey-button:hover {
-  background-color: $green;
+  background-color: $deepBlue;
   color: $pureBlack;
+  border: none;
 }
 
 .city-survey__feedback-ending {
-  text-decoration: none ;
-  color: $pureBlack;
-  background-color: $green;
-  text-align: center;
   @media (min-width: $tabletDevice) {
     padding: 0 85px 0 85px;
   }
@@ -166,6 +164,7 @@
 
 .city-survey__feedback-ending:hover {
   background-color: $pureBlue;
+  border: 2px solid $deepBlue;
 }
 
 .city-survey__feedback-ending:active {
@@ -173,10 +172,16 @@
 }
 
 .city-survey__modal-window {
-  font-size: 24px;
   color: $deepBlue;
   font-weight: 600;
   text-align: center;
+  @media (min-width: $mobileDevice) {
+    font-size: 24px;
+  }
+
+  @media (min-width: $tabletDevice) {
+    font-size: 32px;
+  }
 }
 
 .city-survey_feedback-sending-button,
@@ -198,6 +203,9 @@
     margin: 0 auto;
     padding: 0 20px 0 20px;
   }
+}
+.city-survey_feedback-sending-button:hover {
+  background-color: $deepBlue;
 }
 
 .city-survey_feedback-sending-button:active {
