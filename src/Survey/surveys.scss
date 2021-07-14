@@ -1,10 +1,12 @@
 @import 'src/App';
 
 .surveys {
+  position: relative;
   @media (min-width: $mobileDevice) {
     margin: 0 auto;
     max-width: $mobileDevice;
     padding: 20px;
+    height: 100%;
   }
 }
 

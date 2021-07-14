@@ -6,7 +6,7 @@
     max-width: $mobileDevice;
     margin: 0 auto;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(20px, 1fr));
+    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
     grid-gap: 20px;
     padding-bottom: 40px;
   }
@@ -78,7 +78,7 @@
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid $pureWhite;
-  min-height: 40px;
+  max-height: 40px;
 }
 
 .gender-survey__feedback-survey-button:hover {
@@ -99,7 +99,7 @@
   align-items: center;
   justify-content: center;
   color: $pureBlack;
-  min-height: 40px;
+  max-height: 40px;
   background-color: $deepBlue;
   border-radius: 20px;
 }

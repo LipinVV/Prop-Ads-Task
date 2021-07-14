@@ -6,7 +6,7 @@
     max-width: $mobileDevice;
     margin: 0 auto;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(20px, 1fr));
+    grid-template-rows: 0.1fr 0.1fr 0.2fr 0.1fr 0.1fr;
     grid-gap: 20px;
     padding-bottom: 40px;
   }
@@ -14,12 +14,13 @@
 
 .city-survey__question {
   margin: 0;
-  font-size: 38px;
+  font-size: 24px;
+  font-weight: 800;
   color: $green;
 }
 
 .city-survey__options {
-  min-height: 40px;
+  max-height: 40px;
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
@@ -145,12 +146,11 @@
 }
 
 .city-survey__chosen-option {
-  text-align: center;
   font-size: 16px;
   font-weight: 800;
   width: 100%;
 }
 
 .city-survey__chosen-option-colored {
-  color: $pureRed;
+  color: $green;
 }

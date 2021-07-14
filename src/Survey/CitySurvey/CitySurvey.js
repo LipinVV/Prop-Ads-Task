@@ -58,7 +58,7 @@ export const CitySurvey = () => {
 
     return (
         <div className='city-survey'>
-            <p className='city-survey__question'>В каком городе Вы живете?</p>
+            <h1 className='city-survey__question'>В каком городе Вы живете?</h1>
             {!modal && <select className='city-survey__options' value={cityOption}
                      onChange={citySetHandler}>
                 {Object.values(cities).map((city, index) => (
@@ -102,7 +102,8 @@ export const CitySurvey = () => {
                 Ваши комментарий сохранён!
             </div>}
             <div className='city-survey__chosen-option'>Вы выбрали: <span
-                className='city-survey__chosen-option-colored'>{cityOption}</span></div>
+                className='city-survey__chosen-option-colored'>{cityOption}</span>
+            </div>
             {!completedQuestion ?
                 <button
                     className='city-survey__feedback-survey-button'
