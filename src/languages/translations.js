@@ -1,6 +1,6 @@
 export const translations = {
     ru: {
-        chooseLang: 'Выберите язык:',
+        chooseLang: 'Подтвердите выбор языка:',
         heading: 'Здравствуйте!',
         participation: 'Примите, пожалуйста, участие в опросе',
         gender: 'Укажите Ваш пол:',
@@ -30,10 +30,10 @@ export const translations = {
         return: 'Вернуться в начало'
     },
     en: {
-        chooseLang: 'Choose language:',
+        chooseLang: 'Confirm the language',
         heading: 'Greetings!',
-        participation: 'Please take a part in the Poll',
-        gender: 'Indicate You/your sex:',
+        participation: 'Please take part in the Poll',
+        gender: 'Indicate You sex/ your sex:',
         genderIsMale: 'Male',
         genderIsFemale: 'Female',
         confirmAnswer: "Confirm",

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './surveys.scss'
-import {StoreContext} from "../App";
+import {ACTION, StoreContext} from "../App";
 import {GenderSurvey} from './GenderSurvey/GenderSurvey'
 import {CitySurvey} from "./CitySurvey/CitySurvey";
 import {Gratitude} from "./Gratitude/Gratitude";
@@ -10,14 +10,17 @@ import {keyHandler} from "../Service/keyHandler";
 
 export const Surveys = () => {
 
-    const {state} = useContext(StoreContext);
+    const {state, dispatch} = useContext(StoreContext);
 
     const [language, setLanguage] = useState(state.language)
     const languageHandler = (evt) => {
         const {value} = evt.target
         setLanguage(value)
     }
-
+    const [languageOptions, setLanguageOptions] = useState(true);
+    const languageShowHandler = () => {
+        setLanguageOptions(prevState => !prevState)
+    }
     useEffect(() => {
         const lang = localStorage.getItem('language')
         if (lang) {
@@ -29,17 +32,32 @@ export const Surveys = () => {
     })
     return (
         <div className='surveys'>
-            <div hidden={!state.genderSurveyIsCompleted} className='surveys__languages'>
-                <div className='surveys__languages-proposal'>{translations[language].chooseLang}</div>
-                {Object.keys(translations).map((lang, index) => (
-                    <label className='surveys__language' key={keyHandler(index)}>{lang === 'ru' ? "Русский" : "English"}
-                        <input className='surveys__language-option'
-                            value={lang}
-                            checked={lang === language}
-                            onChange={languageHandler}
-                            type='checkbox' key={keyHandler(index)}/>
-                    </label>))}
-            </div>
+            {languageOptions ? <div className='surveys__languages'>
+                <div className='surveys__languages-section'>
+                    {Object.keys(translations).map((lang, index) => (
+                        <label className={lang === language ? 'surveys__language-colored' : 'surveys__language' }
+                               key={keyHandler(index)}>{lang === 'ru' ? "Русский" : "English"}
+                            <input className='surveys__language-option'
+                                   value={lang}
+                                   checked={lang === language}
+                                   onChange={languageHandler}
+                                   type='checkbox' key={keyHandler(index)}/>
+                        </label>))}
+                </div>
+                <button
+                    className='surveys__language-apply'
+                    onClick={
+                        () => {
+                            dispatch({
+                                action: ACTION.SWITCH_LANGUAGE,
+                                payload: language
+                            });
+                            languageShowHandler()
+                        }
+                    }
+                >{translations[language].chooseLang}
+                </button>
+            </div> : null}
             <Switch>
                 <Route exact path='/'><GenderSurvey chosenLanguage={language}/></Route>
                 <Route exact path='/citySurvey'><CitySurvey chosenLanguage={language}/></Route>

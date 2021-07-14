@@ -32,17 +32,60 @@
   }
 }
 
-.surveys__languages-proposal {
+.surveys__language-apply {
+  @media (min-width: $mobileDevice) {
+    cursor: pointer;
+    max-height: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 auto;
+    background-color: $pureBlack;
+    border: none;
+    padding: 0 20px 0 20px;
+    color: $pureRed;
+    border-radius: 20px;
+  }
+}
 
+.surveys__language-apply:hover {
+  color: $pureBlack;
+  background-color: $green;
+}
+
+.surveys__languages-proposal {
+  text-align: center;
+  color: $pureRed;
+}
+
+.surveys__languages-section {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
 }
 
 .surveys__language {
   max-height: 30px;
   cursor: pointer;
+  border-radius: 20px;
+}
+
+.surveys__language-colored {
+  max-height: 30px;
+  cursor: pointer;
+  background-color: $green;
+  border-radius: 20px;
 }
 
 .surveys__language-option {
   display: none;
+  @media (min-width: $mobileDevice) {
+
+  }
+}
+
+.surveys__language:hover {
+  background-color: $deepBlue;
 }
 
 .surveys__header {
