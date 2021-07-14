@@ -1,4 +1,4 @@
-import React, {Dispatch, useReducer, useState} from 'react';
+import React, {Dispatch, useReducer} from 'react';
 import './App.scss';
 import {Surveys} from "./Survey/Surveys";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -24,6 +24,7 @@ export const ACTION = {
 }
 
 const reducer = (initialState, payLoad) => {
+    console.log('APP', payLoad)
     switch (payLoad.action) {
         case ACTION.PICK_GENDER:
             return {
@@ -55,7 +56,6 @@ const reducer = (initialState, payLoad) => {
         }
     }
 }
-
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (

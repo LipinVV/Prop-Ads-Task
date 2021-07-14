@@ -12,7 +12,6 @@
   @media (min-width: $tabletDevice) {
     max-width: $tabletDevice;
     padding: 26px;
-    min-height: 1000px;
   }
   @media (min-width: $desktopDevice) {
     max-width: $desktopDevice;
@@ -24,11 +23,13 @@
 
 .surveys__languages {
   display: grid;
-  grid-gap: 10px;
-  max-height: 120px;
-  margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 600;
+  @media (min-width: $mobileDevice) {
+    grid-gap: 10px;
+    max-height: 100px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 .surveys__languages-proposal {
@@ -37,6 +38,7 @@
 
 .surveys__language {
   max-height: 30px;
+  cursor: pointer;
 }
 
 .surveys__language-option {

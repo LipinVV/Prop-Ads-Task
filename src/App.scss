@@ -20,10 +20,10 @@ $grey: #918b8c;
   flex-direction: column;
   position: relative;
   @media (min-width: $mobileDevice) {
-    min-height: 660px;
+    min-height: 920px;
   }
   @media (min-width: $tabletDevice) {
-    min-height: 740px;
+
   }
   background-color: $pureBlack;
   color: $pureWhite;

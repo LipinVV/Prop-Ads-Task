@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './surveys.scss'
-import {ACTION, StoreContext} from "../App";
+import {StoreContext} from "../App";
 import {GenderSurvey} from './GenderSurvey/GenderSurvey'
 import {CitySurvey} from "./CitySurvey/CitySurvey";
 import {Gratitude} from "./Gratitude/Gratitude";
@@ -10,7 +10,7 @@ import {keyHandler} from "../Service/keyHandler";
 
 export const Surveys = () => {
 
-    const {state, dispatch} = useContext(StoreContext);
+    const {state} = useContext(StoreContext);
 
     const [language, setLanguage] = useState(state.language)
     const languageHandler = (evt) => {
@@ -29,7 +29,7 @@ export const Surveys = () => {
     })
     return (
         <div className='surveys'>
-            <div className='surveys__languages'>
+            <div hidden={!state.genderSurveyIsCompleted} className='surveys__languages'>
                 <div className='surveys__languages-proposal'>{translations[language].chooseLang}</div>
                 {Object.keys(translations).map((lang, index) => (
                     <label className='surveys__language' key={keyHandler(index)}>{lang === 'ru' ? "Русский" : "English"}
@@ -39,16 +39,6 @@ export const Surveys = () => {
                             onChange={languageHandler}
                             type='checkbox' key={keyHandler(index)}/>
                     </label>))}
-                <button
-                    onClick={() => {
-                        dispatch({
-                            action: ACTION.SWITCH_LANGUAGE,
-                            payload: language
-                        });
-                    }
-                    }
-                >Choose language:
-                </button>
             </div>
             <Switch>
                 <Route exact path='/'><GenderSurvey chosenLanguage={language}/></Route>

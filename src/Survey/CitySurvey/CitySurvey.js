@@ -9,13 +9,15 @@ export const CitySurvey = ({chosenLanguage}) => {
     const {state, dispatch} = useContext(StoreContext);
     const word = translations[chosenLanguage]
     const cities= [word.moscow, word.saintPetersburg, word.kazan, word.nizhnyNovgorod]
-    const firstCity = Object.values(cities)[0];
     const [cityOption, setCityOption] = useState(word.moscow);
     const mailCondition = (message, email) => {
         return message.length < 3 || !email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
     }
 
-    const completedQuestion = state.citySurveyIsCompleted;
+    const [completedQuestion, setCompletedQuestion] = useState(state.citySurveyIsCompleted);
+    const questionHandler = () => {
+        setCompletedQuestion(prevState => !prevState)
+    }
     const citySetHandler = (evt) => {
         const {value} = evt.target
         setCityOption(value)
@@ -41,6 +43,7 @@ export const CitySurvey = ({chosenLanguage}) => {
         const city = localStorage.getItem('city')
         const email = localStorage.getItem('emailFromCitySurvey')
         const comments = localStorage.getItem('comments')
+        const citySurveyIsFinished = localStorage.getItem('citySurveyIsFinished')
         if (city) {
             setCityOption((JSON).parse(city))
         }
@@ -50,12 +53,16 @@ export const CitySurvey = ({chosenLanguage}) => {
         if (comments) {
             setMessage(JSON.parse(comments))
         }
+        if(citySurveyIsFinished) {
+            setCompletedQuestion(JSON.parse(citySurveyIsFinished))
+        }
     }, [])
 
     useEffect(() => {
         localStorage.setItem('city', JSON.stringify(cityOption))
         localStorage.setItem('emailFromCitySurvey', JSON.stringify(email))
         localStorage.setItem('comments', JSON.stringify(message))
+        localStorage.setItem('citySurveyIsFinished', JSON.stringify((completedQuestion)))
     })
     console.log('cityOption', cityOption)
     console.log('lan', chosenLanguage)
@@ -66,7 +73,7 @@ export const CitySurvey = ({chosenLanguage}) => {
                      onChange={citySetHandler}>
                 {Object.values(cities).map((city, index) => (
                         <option className='city-survey__option' key={keyHandler(index)} value={city}
-                                defaultValue={firstCity}>{city}</option>
+                                defaultValue={word.moscow}>{city}</option>
                     )
                 )}
             </select>}
@@ -113,10 +120,15 @@ export const CitySurvey = ({chosenLanguage}) => {
                 <button
                     className='city-survey__feedback-survey-button'
                     type='button'
-                    onClick={() => dispatch({
-                        action: ACTION.PICK_CITY,
-                        payload: cityOption
-                    })}>{word.confirmAnswer}
+                    onClick={
+                        () => {
+                            dispatch({
+                                action: ACTION.PICK_CITY,
+                                payload: cityOption
+                            });
+                            questionHandler()
+                        }
+                    }>{word.confirmAnswer}
                 </button> :
                     <Link onClick={() => dispatch({
                         action: ACTION.CLEAR_STATE

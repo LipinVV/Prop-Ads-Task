@@ -1,6 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {ACTION, StoreContext} from "../../App";
-import {genders} from "../../data/data";
 import './genderSurvey.scss'
 import {Link} from "react-router-dom";
 import {keyHandler} from "../../Service/keyHandler";
@@ -9,7 +8,11 @@ import {translations} from "../../languages/translations";
 export const GenderSurvey = ({chosenLanguage}) => {
     const {state, dispatch} = useContext(StoreContext);
     const [genderOption, setGenderOption] = useState("");
-    const completedQuestion = state.genderSurveyIsCompleted;
+    const [completedQuestion, setCompletedQuestion]= useState(state.genderSurveyIsCompleted);
+    const questionHandler = () => {
+        setCompletedQuestion(prevState => !prevState)
+    }
+
     const genderSetHandler = (evt) => {
         const {value} = evt.target
         setGenderOption(value)
@@ -17,13 +20,18 @@ export const GenderSurvey = ({chosenLanguage}) => {
 
     useEffect(() => {
         const gender = localStorage.getItem('genderOption')
+        const genderSurveyIsFinished = localStorage.getItem('genderSurveyIsFinished')
         if(gender) {
             setGenderOption(JSON.parse(gender))
+        }
+        if(genderSurveyIsFinished) {
+            setCompletedQuestion(JSON.parse(completedQuestion))
         }
     }, [])
 
     useEffect(() => {
         localStorage.setItem('genderOption', JSON.stringify(genderOption))
+        localStorage.setItem('genderSurveyIsFinished', JSON.stringify(completedQuestion))
     })
     return (
         <div className='gender-survey'>
@@ -46,10 +54,15 @@ export const GenderSurvey = ({chosenLanguage}) => {
                 className={!genderOption ? 'gender-survey__feedback-survey-button' : 'gender-survey__feedback-survey-button-active'}
                 disabled={!genderOption}
                 type='button'
-                onClick={() => dispatch({
-                    action: ACTION.PICK_GENDER,
-                    payload: genderOption
-                })}>{translations[chosenLanguage].confirmAnswer}
+                onClick={
+                    () => {
+                        dispatch({
+                            action: ACTION.PICK_GENDER,
+                            payload: genderOption
+                        });
+                        questionHandler()
+                    }
+                }>{translations[chosenLanguage].confirmAnswer}
             </button> : <div>
                 <Link className='gender-survey__feedback-next-question' to='/citySurvey'>{translations[chosenLanguage].next}</Link>
             </div>}
