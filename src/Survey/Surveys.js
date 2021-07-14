@@ -30,7 +30,7 @@ export const Surveys = () => {
     return (
         <div className='surveys'>
             <div className='surveys__languages'>
-                <div className='surveys__languages-proposal'>Выберите язык:</div>
+                <div className='surveys__languages-proposal'>{translations[language].chooseLang}</div>
                 {Object.keys(translations).map((lang, index) => (
                     <label className='surveys__language' key={keyHandler(index)}>{lang === 'ru' ? "Русский" : "English"}
                         <input className='surveys__language-option'

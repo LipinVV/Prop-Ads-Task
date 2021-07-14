@@ -57,6 +57,8 @@ export const CitySurvey = ({chosenLanguage}) => {
         localStorage.setItem('emailFromCitySurvey', JSON.stringify(email))
         localStorage.setItem('comments', JSON.stringify(message))
     })
+    console.log('cityOption', cityOption)
+    console.log('lan', chosenLanguage)
     return (
         <div className='city-survey'>
             <h1 className='city-survey__question'>{chosenLanguage === 'ru' ? word.pickTheCity.slice(0, 14) : word.pickTheCity.slice(0, 10)}<br className='city-survey__question-breaker'/>{chosenLanguage==='ru' ? word.pickTheCity.slice(14, 26) : word.pickTheCity.slice(10, 26)}</h1>
