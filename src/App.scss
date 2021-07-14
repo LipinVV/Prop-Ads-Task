@@ -16,6 +16,12 @@ $rose: #f140a9;
 $grey: #918b8c;
 
 .App {
+  @media (min-width: $mobileDevice) {
+    min-height: 660px;
+  }
+  @media (min-width: $tabletDevice) {
+    min-height: 740px;
+  }
   background-color: $pureBlack;
   color: $pureWhite;
 }
