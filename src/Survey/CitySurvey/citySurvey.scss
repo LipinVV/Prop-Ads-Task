@@ -130,6 +130,7 @@
 
 .city-survey__feedback-survey-button,
 .city-survey__feedback-ending {
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   background-color: $green;
@@ -153,7 +154,7 @@
 .city-survey__feedback-survey-button:hover {
   background-color: $deepBlue;
   color: $pureBlack;
-  border: none;
+  border: 2px solid $deepBlue;
 }
 
 .city-survey__feedback-ending {
