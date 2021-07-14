@@ -6,7 +6,7 @@
     max-width: $mobileDevice;
     margin: 0 auto;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 0.1fr 0.2fr 0.1fr 0.1fr;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr;
     grid-gap: 20px;
     padding-bottom: 40px;
   }
@@ -111,6 +111,10 @@
 
 .city-survey__feedback-ending:hover {
   background-color: $pureBlue;
+}
+
+.city-survey__feedback-ending:active {
+  color: $pureWhite;
 }
 
 .city-survey__modal-window {

@@ -27,3 +27,24 @@
   text-decoration: none;
   font-size: 20px;
 }
+
+.gratitude__company-link {
+  border: 2px solid $green;
+  border-radius: 10px;
+}
+
+.gratitude__company-link:hover {
+  background-color: $green;
+  color: $pureBlack;
+}
+
+.gratitude__exit-link {
+  border-radius: 10px;
+  background-color: $green;
+  color: $pureBlack;
+}
+
+.gratitude__exit-link:hover {
+  background-color: $deepBlue;
+  color: $pureBlack;
+}
