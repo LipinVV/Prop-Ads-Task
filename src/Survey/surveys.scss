@@ -1,0 +1,18 @@
+@import 'src/App';
+
+.surveys {
+  @media (min-width: $mobileDevice) {
+    margin: 0 auto;
+    max-width: $mobileDevice;
+    padding: 20px;
+  }
+}
+
+.surveys__header {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 30px;
+  font-weight: 800;
+}
+

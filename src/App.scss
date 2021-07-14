@@ -1,0 +1,21 @@
+// media queries
+$mobileDevice: 320px;
+$tabletDevice: 768px;
+$desktopDevice: 1024px;
+$largeDesktopDevice: 1440px;
+
+
+//colors
+$pureBlack: #000000;
+$pureWhite: #ffffff;
+$pureBlue: #618DFF;
+$pureRed: #DF0000;
+$green: #65d9a5;
+$deepBlue: #007aff;
+$rose: #f140a9;
+$grey: #918b8c;
+
+.App {
+  background-color: $pureBlack;
+  color: $pureWhite;
+}

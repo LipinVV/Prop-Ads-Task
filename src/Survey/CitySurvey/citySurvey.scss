@@ -1,0 +1,156 @@
+@import "src/App";
+
+.city-survey {
+  display: grid;
+  @media (min-width: $mobileDevice) {
+    max-width: $mobileDevice;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(20px, 1fr));
+    grid-gap: 20px;
+    padding-bottom: 40px;
+  }
+}
+
+.city-survey__question {
+  margin: 0;
+  font-size: 38px;
+  color: $green;
+}
+
+.city-survey__options {
+  min-height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.city-survey__option {
+  background-color: $green;
+  color: $pureBlack;
+}
+
+.city-survey__feedback {
+  @media (min-width: $mobileDevice) {
+    display: grid;
+    grid-gap: 20px;
+  }
+}
+
+.city-survey__feedback-textarea {
+  @media (min-width: $mobileDevice) {
+    width: 100%;
+    min-height: 100px;
+    max-height: 140px;
+    font-size: 20px;
+    padding: 0;
+    resize: none;
+    border: 3px solid $pureBlack;
+  }
+}
+
+.city-survey__feedback-email {
+  @media (min-width: $mobileDevice) {
+    max-width: $mobileDevice;
+  }
+}
+
+.city-survey__feedback-email-input {
+  padding: 0;
+  @media (min-width: $mobileDevice) {
+    width: 100%;
+    font-size: 20px;
+    min-height: 20px;
+    max-height: 30px;
+    margin-top: 20px;
+    border: 3px solid $pureBlack;
+  }
+}
+
+.city-survey__feedback-label {
+  @media (min-width: $mobileDevice) {
+    width: 100%;
+  }
+}
+
+.city-survey__feedback-warning {
+  font-size: 14px;
+  font-weight: 600;
+  color: $pureRed;
+}
+
+.city-survey__feedback-survey-button {
+  cursor: pointer;
+  background-color: $pureBlack;
+  color: $pureWhite;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 20px;
+  border: 2px solid $pureWhite;
+  min-height: 40px;
+}
+
+.city-survey__feedback-survey-button:hover {
+  background-color: $green;
+  color: $pureBlack;
+}
+
+.city-survey__feedback-ending {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $pureBlack;
+  border-radius: 20px;
+  background-color: $green;
+  min-height: 40px;
+}
+
+.city-survey__feedback-ending:hover {
+  background-color: $pureBlue;
+}
+
+.city-survey__modal-window {
+  font-size: 24px;
+  color: $deepBlue;
+  font-weight: 600;
+  text-align: center;
+}
+
+.city-survey_feedback-sending-button {
+  cursor: pointer;
+  background-color: $green;
+  color: $pureBlack;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 20px;
+  border: none;
+  min-height: 40px;
+}
+
+.city-survey_feedback-sending-button:active {
+  color: $pureWhite;
+}
+
+.city-survey__feedback-sending-button-disabled {
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 20px;
+  border: none;
+  min-height: 40px;
+  cursor: pointer;
+  background-color: $grey;
+}
+
+.city-survey__chosen-option {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  width: 100%;
+}
+
+.city-survey__chosen-option-colored {
+  color: $pureRed;
+}
