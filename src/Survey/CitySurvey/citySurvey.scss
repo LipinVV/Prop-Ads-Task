@@ -88,7 +88,7 @@
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid $pureWhite;
-  min-height: 40px;
+  max-height: 40px;
 }
 
 .city-survey__feedback-survey-button:hover {
@@ -106,7 +106,7 @@
   color: $pureBlack;
   border-radius: 20px;
   background-color: $green;
-  min-height: 40px;
+  max-height: 40px;
 }
 
 .city-survey__feedback-ending:hover {
