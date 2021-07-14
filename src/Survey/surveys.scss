@@ -10,6 +10,7 @@
   }
   @media (min-width: $tabletDevice) {
     max-width: $tabletDevice;
+    padding: 26px;
   }
   @media (min-width: $desktopDevice) {
     max-width: $desktopDevice;
