@@ -58,7 +58,7 @@ export const CitySurvey = () => {
 
     return (
         <div className='city-survey'>
-            <h1 className='city-survey__question'>В каком городе <br /> Вы живете?</h1>
+            <h1 className='city-survey__question'>В каком городе <br className='city-survey__question-breaker'/> Вы живете?</h1>
             {!modal && <select className='city-survey__options' value={cityOption}
                      onChange={citySetHandler}>
                 {Object.values(cities).map((city, index) => (
@@ -72,7 +72,7 @@ export const CitySurvey = () => {
                 <textarea className='city-survey__feedback-textarea' value={message} onChange={messageHandler}/>
                 {message.length > 0 && message.length < 3 ?
                     <span className='city-survey__feedback-warning'>Введите минимум 3 символа</span> : null}
-                <label className='city-survey__feedback-email'>Укажите Ваш e-mail<br/><span className='city-survey__feedback-warning'>*(обязательно для комментария):</span>
+                <label className='city-survey__feedback-email'>Укажите Ваш e-mail:<br/><span className='city-survey__feedback-warning'>(обязательно для комментария)*</span>
                     <input className='city-survey__feedback-email-input'
                            required={true}
                            onChange={emailHandler}
@@ -100,12 +100,12 @@ export const CitySurvey = () => {
                 </button>
             </div>}
             {modal && <div className='city-survey__modal-window'>
-                Ваши комментарий сохранён!
+                Ваш комментарий сохранён!
             </div>}
+            {!modal && <div className='city-survey__feedback-warning'>Вы не добавили комментарий</div>}
             <div className='city-survey__chosen-option'>Вы выбрали: <span
                 className='city-survey__chosen-option-colored'>{cityOption}</span>
             </div>
-            {Boolean(mailCondition(message, email)) && <div className='city-survey__feedback-warning'>Ответ будет отправлен без комментария!</div>}
             {!completedQuestion ?
                 <button
                     className='city-survey__feedback-survey-button'
@@ -115,11 +115,9 @@ export const CitySurvey = () => {
                         payload: cityOption
                     })}>Подтвердить
                 </button> :
-                <div>
                     <Link onClick={() => dispatch({
                         action: ACTION.CLEAR_STATE
                     })} className='city-survey__feedback-ending' to='/gratitude'>Завершить</Link>
-                </div>
             }
         </div>
     )

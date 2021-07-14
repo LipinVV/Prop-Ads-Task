@@ -3,10 +3,20 @@
 .gratitude {
   display: grid;
   @media (min-width: $mobileDevice) {
-    grid-template-rows: 0.2fr 0.1fr 0.1fr;
+    max-width: $mobileDevice;
+    grid-template-rows: 0.1fr 0.1fr;
+    grid-gap: 20px;
+  }
+  @media (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
     grid-gap: 40px;
   }
+}
 
+.gratitude__header__breaker {
+  @media (min-width: $tabletDevice) {
+    display: none;
+  }
 }
 
 .gratitude__header {
@@ -16,10 +26,13 @@
 .gratitude__header,
 .gratitude__exit-link,
 .gratitude__company-link {
+  font-weight: 800;
+  text-align: center;
   @media (min-width: $mobileDevice) {
-    font-weight: 800;
     font-size: 20px;
-    text-align: center;
+  }
+  @media (min-width: $tabletDevice) {
+    font-size: 26px;
   }
 }
 
@@ -30,8 +43,15 @@
   align-items: center;
   color: $green;
   text-decoration: none;
-  font-size: 20px;
-  max-height: 40px;
+  @media (min-width: $mobileDevice) {
+    max-width: $mobileDevice;
+    max-height: 40px;
+  }
+  @media (min-width: $tabletDevice) {
+    max-height: 52px;
+    min-width: $tabletDevice / 1.5;
+    margin: 0 auto;
+  }
 }
 
 .gratitude__company-link {

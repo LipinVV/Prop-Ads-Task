@@ -8,6 +8,15 @@
     padding: 20px;
     height: 100%;
   }
+  @media (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
+  }
+  @media (min-width: $desktopDevice) {
+    max-width: $desktopDevice;
+  }
+  @media (min-width: $largeDesktopDevice) {
+    max-width: $largeDesktopDevice;
+  }
 }
 
 .surveys__header {

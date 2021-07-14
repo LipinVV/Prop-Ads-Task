@@ -10,6 +10,9 @@
     grid-gap: 20px;
     padding-bottom: 40px;
   }
+  @media (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
+  }
 }
 
 .city-survey__question {
@@ -19,13 +22,30 @@
     font-size: 24px;
     font-weight: 800;
   }
+  @media (min-width: $tabletDevice) {
+    font-size: 32px;
+  }
+}
+
+.city-survey__question-breaker {
+  @media (min-width: $tabletDevice) {
+    display: none ;
+  }
 }
 
 .city-survey__options {
-  max-height: 40px;
-  font-size: 20px;
-  font-weight: 600;
   cursor: pointer;
+  @media (min-width: $mobileDevice) {
+    max-height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 3px solid $green;
+  }
+  @media (min-width: $tabletDevice) {
+    max-height: 52px;
+    font-size: 26px;
+    padding-left: 10px;
+  }
 }
 
 .city-survey__option {
@@ -48,25 +68,42 @@
     font-size: 20px;
     padding: 0;
     resize: none;
-    border: 3px solid $pureBlack;
+    border: 3px solid $green;
+  }
+  @media (min-width: $tabletDevice) {
+    min-height: 140px;
+    max-height: 180px;
+    font-size: 26px;
   }
 }
 
 .city-survey__feedback-email {
   @media (min-width: $mobileDevice) {
     max-width: $mobileDevice;
+    font-size: 16px;
+  }
+
+  @media (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
+    font-size: 20px;
   }
 }
 
 .city-survey__feedback-email-input {
   padding: 0;
+  border: 3px solid $green;
   @media (min-width: $mobileDevice) {
     width: 100%;
     font-size: 20px;
     min-height: 20px;
     max-height: 30px;
     margin-top: 20px;
-    border: 3px solid $pureBlack;
+  }
+  @media (min-width: $tabletDevice) {
+    font-size: 26px;
+    min-height: 26px;
+    max-height: 40px;
+    margin-top: 26px;
   }
 }
 
@@ -74,23 +111,42 @@
   @media (min-width: $mobileDevice) {
     width: 100%;
   }
+  @media (min-width: $tabletDevice) {
+    font-weight: 600;
+  }
 }
 
 .city-survey__feedback-warning {
-  font-size: 12px;
-  font-weight: 600;
   color: $pureRed;
+  @media (min-width: $mobileDevice) {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  @media (min-width: $tabletDevice) {
+    font-size: 16px;
+  }
 }
 
-.city-survey__feedback-survey-button {
+.city-survey__feedback-survey-button,
+.city-survey__feedback-ending {
   cursor: pointer;
   background-color: $pureBlack;
   color: $pureWhite;
-  font-size: 24px;
   font-weight: 800;
   border-radius: 20px;
   border: 2px solid $pureWhite;
-  max-height: 40px;
+  @media (min-width: $mobileDevice) {
+    font-size: 24px;
+    max-height: 40px;
+  }
+  @media (min-width: $tabletDevice) {
+    font-size: 32px;
+    max-height: 52px;
+    max-width: $tabletDevice;
+    margin: 0 auto;
+    padding: 0 60px 0 60px;
+  }
 }
 
 .city-survey__feedback-survey-button:hover {
@@ -99,16 +155,13 @@
 }
 
 .city-survey__feedback-ending {
-  font-size: 24px;
-  font-weight: 800;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-decoration: none ;
   color: $pureBlack;
-  border-radius: 20px;
   background-color: $green;
-  max-height: 40px;
+  text-align: center;
+  @media (min-width: $tabletDevice) {
+    padding: 0 85px 0 85px;
+  }
 }
 
 .city-survey__feedback-ending:hover {
@@ -126,15 +179,25 @@
   text-align: center;
 }
 
-.city-survey_feedback-sending-button {
+.city-survey_feedback-sending-button,
+.city-survey__feedback-sending-button-disabled {
   cursor: pointer;
   background-color: $green;
   color: $pureBlack;
-  font-size: 18px;
   font-weight: 800;
   border-radius: 20px;
   border: none;
-  min-height: 40px;
+  @media (min-width: $mobileDevice) {
+    min-height: 40px;
+    font-size: 18px;
+  }
+  @media (min-width: $tabletDevice) {
+    min-height: 52px;
+    font-size: 24px;
+    max-width: $tabletDevice / 2;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+  }
 }
 
 .city-survey_feedback-sending-button:active {
@@ -142,19 +205,18 @@
 }
 
 .city-survey__feedback-sending-button-disabled {
-  font-size: 18px;
-  font-weight: 800;
-  border-radius: 20px;
-  border: none;
-  min-height: 40px;
-  cursor: pointer;
   background-color: $grey;
 }
 
 .city-survey__chosen-option {
-  font-size: 16px;
-  font-weight: 800;
-  width: 100%;
+  @media (min-width: $mobileDevice) {
+    font-size: 16px;
+    font-weight: 800;
+    width: 100%;
+  }
+  @media (min-width: $tabletDevice) {
+    font-size: 24px;
+  }
 }
 
 .city-survey__chosen-option-colored {
