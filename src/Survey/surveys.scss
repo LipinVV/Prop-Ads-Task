@@ -1,7 +1,8 @@
 @import 'src/App';
 
 .surveys {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   @media (min-width: $mobileDevice) {
     margin: 0 auto;
     max-width: $mobileDevice;
@@ -18,6 +19,27 @@
   @media (min-width: $largeDesktopDevice) {
     max-width: $largeDesktopDevice;
   }
+}
+
+.surveys__languages {
+  display: grid;
+  grid-gap: 10px;
+  max-height: 120px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.surveys__languages-proposal {
+
+}
+
+.surveys__language {
+  max-height: 30px;
+}
+
+.surveys__language-option {
+  display: none;
 }
 
 .surveys__header {

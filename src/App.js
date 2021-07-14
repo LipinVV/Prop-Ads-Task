@@ -1,16 +1,16 @@
-import React, {Dispatch, useReducer} from 'react';
+import React, {Dispatch, useReducer, useState} from 'react';
 import './App.scss';
 import {Surveys} from "./Survey/Surveys";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-
 console.log(localStorage)
 
 export const initialState = {
-    gender: "",
-    city: "",
+    gender: '',
+    city: '',
     genderSurveyIsCompleted: false,
     citySurveyIsCompleted: false,
     feedBackFromCitySurvey: {},
+    language: 'en'
 };
 
 export const StoreContext = React.createContext({state: initialState, dispatch: Dispatch});
@@ -19,7 +19,8 @@ export const ACTION = {
     PICK_GENDER: 'ADD_GENDER',
     PICK_CITY: 'PICK_CITY',
     ADD_COMMENT_CITY_SURVEY: 'ADD_COMMENT_CITY_SURVEY',
-    CLEAR_STATE: 'CLEAR_STATE'
+    CLEAR_STATE: 'CLEAR_STATE',
+    SWITCH_LANGUAGE: 'SWITCH_LANGUAGE'
 }
 
 const reducer = (initialState, payLoad) => {
@@ -42,8 +43,13 @@ const reducer = (initialState, payLoad) => {
                 ...initialState,
                 feedBackFromCitySurvey: payLoad.payload
             };
+        case ACTION.SWITCH_LANGUAGE:
+            return {
+                ...initialState,
+                language: payLoad.payload
+            };
         case ACTION.CLEAR_STATE:
-            return initialState = ""
+            return initialState = ''
         default: {
             return initialState
         }
@@ -52,7 +58,6 @@ const reducer = (initialState, payLoad) => {
 
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log('STATE', state)
     return (
         <StoreContext.Provider value={{state, dispatch}}>
             <div className="App">

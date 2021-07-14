@@ -4,8 +4,9 @@ import {genders} from "../../data/data";
 import './genderSurvey.scss'
 import {Link} from "react-router-dom";
 import {keyHandler} from "../../Service/keyHandler";
+import {translations} from "../../languages/translations";
 
-export const GenderSurvey = () => {
+export const GenderSurvey = ({chosenLanguage}) => {
     const {state, dispatch} = useContext(StoreContext);
     const [genderOption, setGenderOption] = useState("");
     const completedQuestion = state.genderSurveyIsCompleted;
@@ -24,13 +25,11 @@ export const GenderSurvey = () => {
     useEffect(() => {
         localStorage.setItem('genderOption', JSON.stringify(genderOption))
     })
-
-
     return (
         <div className='gender-survey'>
-            <h1 className='gender-survey_header'>Здравствуйте! <br/><span className='gender-survey_header-colored'>Примите, пожалуйста, участие в опросе:</span></h1>
-            <p className='gender-survey__question'>Укажите Ваш пол:</p>
-            {Object.values(genders).map((gender, index) =>
+            <h1 id='heading' className='gender-survey_header'>{translations[chosenLanguage].heading}<br/><span className='gender-survey_header-colored'>{translations[chosenLanguage].participation}</span></h1>
+            <p className='gender-survey__question'>{translations[chosenLanguage].gender}</p>
+            {[translations[chosenLanguage].genderIsMale, translations[chosenLanguage].genderIsFemale].map((gender, index) =>
                 <label
                     className={gender === genderOption ? 'gender-survey__label-checked' : 'gender-survey__label' }
                     key={keyHandler(index)}>{gender}
@@ -50,9 +49,9 @@ export const GenderSurvey = () => {
                 onClick={() => dispatch({
                     action: ACTION.PICK_GENDER,
                     payload: genderOption
-                })}>Подтвердить
+                })}>{translations[chosenLanguage].confirmAnswer}
             </button> : <div>
-                <Link className='gender-survey__feedback-next-question' to='/citySurvey'>Следующий вопрос</Link>
+                <Link className='gender-survey__feedback-next-question' to='/citySurvey'>{translations[chosenLanguage].next}</Link>
             </div>}
         </div>
     )

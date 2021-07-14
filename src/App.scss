@@ -16,6 +16,9 @@ $rose: #f140a9;
 $grey: #918b8c;
 
 .App {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   @media (min-width: $mobileDevice) {
     min-height: 660px;
   }

@@ -1,14 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ACTION, StoreContext} from "../../App";
-import {cities} from "../../data/data";
 import './citySurvey.scss'
 import {Link} from 'react-router-dom';
 import {keyHandler} from "../../Service/keyHandler";
+import {translations} from "../../languages/translations";
 
-export const CitySurvey = () => {
+export const CitySurvey = ({chosenLanguage}) => {
     const {state, dispatch} = useContext(StoreContext);
+    const word = translations[chosenLanguage]
+    const cities= [word.moscow, word.saintPetersburg, word.kazan, word.nizhnyNovgorod]
     const firstCity = Object.values(cities)[0];
-    const [cityOption, setCityOption] = useState('Москва');
+    const [cityOption, setCityOption] = useState(word.moscow);
     const mailCondition = (message, email) => {
         return message.length < 3 || !email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
     }
@@ -55,10 +57,9 @@ export const CitySurvey = () => {
         localStorage.setItem('emailFromCitySurvey', JSON.stringify(email))
         localStorage.setItem('comments', JSON.stringify(message))
     })
-
     return (
         <div className='city-survey'>
-            <h1 className='city-survey__question'>В каком городе <br className='city-survey__question-breaker'/> Вы живете?</h1>
+            <h1 className='city-survey__question'>{chosenLanguage === 'ru' ? word.pickTheCity.slice(0, 14) : word.pickTheCity.slice(0, 9)}<br className='city-survey__question-breaker'/>{chosenLanguage==='ru' ? word.pickTheCity.slice(14, 26) : word.pickTheCity.slice(10, 26)}</h1>
             {!modal && <select className='city-survey__options' value={cityOption}
                      onChange={citySetHandler}>
                 {Object.values(cities).map((city, index) => (
@@ -68,11 +69,11 @@ export const CitySurvey = () => {
                 )}
             </select>}
             {!modal && <div className='city-survey__feedback'>
-                <label className='city-survey__feedback-label'>Оставьте Ваш комментарий <br/> (по желанию):</label>
+                <label className='city-survey__feedback-label'>{word.leaveComment}<br/>{word.optionalFiled}</label>
                 <textarea className='city-survey__feedback-textarea' value={message} onChange={messageHandler}/>
                 {message.length > 0 && message.length < 3 ?
-                    <span className='city-survey__feedback-warning'>Введите минимум 3 символа</span> : null}
-                <label className='city-survey__feedback-email'>Укажите Ваш e-mail:<br/><span className='city-survey__feedback-warning'>(обязательно для комментария)*</span>
+                    <span className='city-survey__feedback-warning'>{word.minimumSymbols}</span> : null}
+                <label className='city-survey__feedback-email'>{word.enterEmail}<br/><span className='city-survey__feedback-warning'>{word.commentObligation}</span>
                     <input className='city-survey__feedback-email-input'
                            required={true}
                            onChange={emailHandler}
@@ -82,7 +83,7 @@ export const CitySurvey = () => {
                     </input>
                 </label>
                 {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && email.length > 0 ?
-                    <span className='city-survey__feedback-warning'>Неверный формат e-mail</span> : null}
+                    <span className='city-survey__feedback-warning'>{word.wrongMailFormat}</span> : null}
                 <button
                     disabled={Boolean(mailCondition(message, email))}
                     className={Boolean(mailCondition(message, email)) ? 'city-survey__feedback-sending-button-disabled' : 'city-survey_feedback-sending-button'}
@@ -96,14 +97,14 @@ export const CitySurvey = () => {
                             });
                             popUp()
                         }
-                    }>Добавить комментарий
+                    }>{word.leaveComment}
                 </button>
             </div>}
             {modal && <div className='city-survey__modal-window'>
-                Ваш комментарий сохранён!
+                {word.commentSaved}
             </div>}
-            {!modal && <div className='city-survey__feedback-warning'>Вы не добавили комментарий</div>}
-            <div className='city-survey__chosen-option'>Вы выбрали: <span
+            {!modal && <div className='city-survey__feedback-warning'>{word.noComments}</div>}
+            <div className='city-survey__chosen-option'>{word.yourAnswer} <span
                 className='city-survey__chosen-option-colored'>{cityOption}</span>
             </div>
             {!completedQuestion ?
@@ -113,11 +114,11 @@ export const CitySurvey = () => {
                     onClick={() => dispatch({
                         action: ACTION.PICK_CITY,
                         payload: cityOption
-                    })}>Подтвердить
+                    })}>{word.confirmAnswer}
                 </button> :
                     <Link onClick={() => dispatch({
                         action: ACTION.CLEAR_STATE
-                    })} className='city-survey__feedback-ending' to='/gratitude'>Завершить</Link>
+                    })} className='city-survey__feedback-ending' to='/gratitude'>{word.submitSurvey}</Link>
             }
         </div>
     )
