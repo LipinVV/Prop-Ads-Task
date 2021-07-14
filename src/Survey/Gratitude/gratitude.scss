@@ -2,8 +2,11 @@
 
 .gratitude {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 0.1fr;
-  grid-gap: 40px;
+  @media (min-width: $mobileDevice) {
+    grid-template-rows: 0.2fr 0.1fr 0.1fr;
+    grid-gap: 40px;
+  }
+
 }
 
 .gratitude__header {
@@ -13,9 +16,11 @@
 .gratitude__header,
 .gratitude__exit-link,
 .gratitude__company-link {
-  font-weight: 800;
-  font-size: 30px;
-  text-align: center;
+  @media (min-width: $mobileDevice) {
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
 .gratitude__exit-link,
@@ -26,6 +31,7 @@
   color: $green;
   text-decoration: none;
   font-size: 20px;
+  max-height: 40px;
 }
 
 .gratitude__company-link {
