@@ -57,7 +57,7 @@ const reducer = (initialState, payLoad) => {
 }
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state)
+    console.log('current state', state)
     return (
         <StoreContext.Provider value={{state, dispatch}}>
             <div className="App">
