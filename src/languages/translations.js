@@ -30,10 +30,10 @@ export const translations = {
         return: 'Вернуться в начало'
     },
     en: {
-        chooseLang: 'Confirm the language',
+        chooseLang: 'Select a language',
         heading: 'Greetings!',
-        participation: 'Please take part in the Poll',
-        gender: 'Indicate You sex/ your sex:',
+        participation: 'Please take part in the poll',
+        gender: 'Indicate your sex:',
         genderIsMale: 'Male',
         genderIsFemale: 'Female',
         confirmAnswer: "Confirm",
