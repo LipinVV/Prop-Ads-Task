@@ -19,12 +19,12 @@ $grey: #918b8c;
   flex-direction: column;
   position: relative;
   @media only screen and (min-width: $mobileDevice) {
-    min-height: 700px;
+    min-height: 900px;
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
   }
   @media only screen and (min-width: $desktopDevice) {
-    min-height: 1200px;
+    min-height: 1300px;
   }
   background-color: $pureBlack;
   color: $pureWhite;
