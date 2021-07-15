@@ -2,7 +2,6 @@
 $mobileDevice: 320px;
 $tabletDevice: 768px;
 $desktopDevice: 1024px;
-$largeDesktopDevice: 1440px;
 
 
 //colors
@@ -19,11 +18,12 @@ $grey: #918b8c;
   display: flex;
   flex-direction: column;
   position: relative;
-  @media (min-width: $mobileDevice) {
-    min-height: 920px;
+  @media only screen and (min-width: $mobileDevice) {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
   }
-  @media (min-width: $tabletDevice) {
-
+  @media only screen and (min-width: $desktopDevice) {
+    min-height: 1200px;
   }
   background-color: $pureBlack;
   color: $pureWhite;

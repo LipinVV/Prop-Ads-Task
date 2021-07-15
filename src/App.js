@@ -24,7 +24,6 @@ export const ACTION = {
 }
 
 const reducer = (initialState, payLoad) => {
-    console.log('APP', payLoad)
     switch (payLoad.action) {
         case ACTION.PICK_GENDER:
             return {
@@ -58,6 +57,7 @@ const reducer = (initialState, payLoad) => {
 }
 function App() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    console.log(state)
     return (
         <StoreContext.Provider value={{state, dispatch}}>
             <div className="App">

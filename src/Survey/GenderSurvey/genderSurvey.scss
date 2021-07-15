@@ -12,7 +12,9 @@
   @media (min-width: $tabletDevice) {
     max-width: $tabletDevice;
   }
-
+  @media (min-width: $desktopDevice) {
+    max-width: $desktopDevice;
+  }
 }
 
 .gender-survey_header {
@@ -29,6 +31,9 @@
   @media (min-width: $tabletDevice) {
     font-size: 40px;
   }
+  @media (min-width: $tabletDevice) {
+    font-size: 52px;
+  }
 }
 
 .gender-survey_header-colored {
@@ -38,6 +43,9 @@
   }
   @media (min-width: $tabletDevice) {
     font-size: 32px;
+  }
+  @media (min-width: $desktopDevice) {
+    font-size: 42px;
   }
 }
 
@@ -51,6 +59,9 @@
   @media (min-width: $tabletDevice) {
     font-size: 32px;
   }
+  @media (min-width: $desktopDevice) {
+    font-size: 42px;
+  }
 }
 
 .gender-survey__label {
@@ -62,6 +73,9 @@
   }
   @media (min-width: $tabletDevice) {
     font-size: 24px;
+  }
+  @media (min-width: $desktopDevice) {
+    font-size: 32px;
   }
 }
 
@@ -75,6 +89,9 @@
     font-size: 20px;
   }
   @media (min-width: $tabletDevice) {
+    font-size: 30px;
+  }
+  @media (min-width: $desktopDevice) {
     font-size: 30px;
   }
 }
@@ -107,6 +124,12 @@
     min-width: $tabletDevice / 2;
     margin: 0 auto;
   }
+  @media (min-width: $desktopDevice) {
+    min-width: $desktopDevice / 2;
+    font-size: 34px;
+    max-height: 66px;
+  }
+
 }
 
 .gender-survey__feedback-survey-button:hover {
@@ -144,6 +167,11 @@
     max-height: 52px;
     max-width: $tabletDevice / 2;
     margin: 0 auto;
+  }
+  @media (min-width: $desktopDevice) {
+    min-width: $desktopDevice / 2;
+    font-size: 34px;
+    max-height: 66px;
   }
 }
 

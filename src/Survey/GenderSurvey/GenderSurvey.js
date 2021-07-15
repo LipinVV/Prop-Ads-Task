@@ -25,9 +25,9 @@ export const GenderSurvey = ({chosenLanguage}) => {
             setGenderOption(JSON.parse(gender))
         }
         if(genderSurveyIsFinished) {
-            setCompletedQuestion(JSON.parse(completedQuestion))
+            setCompletedQuestion(JSON.parse(completedQuestion.toLocaleString()))
         }
-    }, [])
+    }, [completedQuestion])
 
     useEffect(() => {
         localStorage.setItem('genderOption', JSON.stringify(genderOption))

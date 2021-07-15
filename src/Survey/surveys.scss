@@ -7,7 +7,6 @@
     margin: 0 auto;
     max-width: $mobileDevice;
     padding: 20px;
-    min-height: 900px;
   }
   @media (min-width: $tabletDevice) {
     max-width: $tabletDevice;
@@ -15,9 +14,7 @@
   }
   @media (min-width: $desktopDevice) {
     max-width: $desktopDevice;
-  }
-  @media (min-width: $largeDesktopDevice) {
-    max-width: $largeDesktopDevice;
+    padding: 34px;
   }
 }
 
@@ -26,9 +23,12 @@
   @media (min-width: $mobileDevice) {
     grid-gap: 10px;
     max-height: 100px;
-    margin-bottom: 40px;
     font-size: 20px;
     font-weight: 600;
+    padding-bottom: 20px;
+  }
+  @media (min-width: $tabletDevice) {
+    padding-bottom: 30px;
   }
 }
 
@@ -79,20 +79,8 @@
 
 .surveys__language-option {
   display: none;
-  @media (min-width: $mobileDevice) {
-
-  }
 }
 
 .surveys__language:hover {
   background-color: $deepBlue;
 }
-
-.surveys__header {
-  margin: 0;
-  font-size: 20px;
-  text-align: center;
-  padding-bottom: 30px;
-  font-weight: 800;
-}
-

@@ -12,6 +12,10 @@
     max-width: $tabletDevice;
     grid-gap: 40px;
   }
+  @media (min-width: $desktopDevice) {
+    max-width: $desktopDevice;
+    grid-gap: 60px;
+  }
 }
 
 .gratitude__header__breaker {
@@ -35,6 +39,9 @@
   @media (min-width: $tabletDevice) {
     font-size: 26px;
   }
+  @media (min-width: $desktopDevice) {
+    font-size: 32px;
+  }
 }
 
 .gratitude__exit-link,
@@ -51,6 +58,11 @@
   @media (min-width: $tabletDevice) {
     max-height: 52px;
     min-width: $tabletDevice / 1.5;
+    margin: 0 auto;
+  }
+  @media (min-width: $desktopDevice) {
+    max-height: 66px;
+    min-width: $desktopDevice / 1.5;
     margin: 0 auto;
   }
 }
