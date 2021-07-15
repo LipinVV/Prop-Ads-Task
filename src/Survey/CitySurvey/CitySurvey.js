@@ -128,9 +128,9 @@ export const CitySurvey = ({chosenLanguage}) => {
                         }
                     }>{word.confirmAnswer}
                 </button> :
-                <div><Link onClick={() => dispatch({
+                <Link onClick={() => dispatch({
                     action: ACTION.CLEAR_STATE
-                })} className='city-survey__feedback-ending' to='/gratitude'>{word.submitSurvey}</Link></div>
+                })} className='city-survey__feedback-ending' to='/gratitude'>{word.submitSurvey}</Link>
             }
         </div>
     )
