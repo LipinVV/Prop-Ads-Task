@@ -1,6 +1,6 @@
 export const translations = {
     ru: {
-        chooseLang: 'Подтвердите выбор языка:',
+        chooseLang: 'Выберите язык',
         heading: 'Здравствуйте!',
         participation: 'Примите, пожалуйста, участие в опросе',
         gender: 'Укажите Ваш пол:',
@@ -10,7 +10,7 @@ export const translations = {
         next: 'Следующий вопрос',
         pickTheCity: 'В каком городе Вы живете ?',
         moscow: 'Москва',
-        saintPetersburg: 'СанктПетербург',
+        saintPetersburg: 'Санкт Петербург',
         kazan: 'Казань',
         nizhnyNovgorod: 'Нижний Новгород',
         leaveComment: 'Добавить комментарий',
@@ -32,7 +32,7 @@ export const translations = {
     en: {
         chooseLang: 'Select a language',
         heading: 'Greetings!',
-        participation: 'Please take part in the poll',
+        participation: 'Please, take part in the poll',
         gender: 'Indicate your sex:',
         genderIsMale: 'Male',
         genderIsFemale: 'Female',
@@ -40,7 +40,7 @@ export const translations = {
         next: 'Next question',
         pickTheCity: 'What city do you live in ?',
         moscow: 'Moscow',
-        saintPetersburg: 'SaintPetersburg',
+        saintPetersburg: 'Saint Petersburg',
         kazan: 'Kazan',
         nizhnyNovgorod: 'Nizhny Novgorod',
         leaveComment: 'Leave your comment',

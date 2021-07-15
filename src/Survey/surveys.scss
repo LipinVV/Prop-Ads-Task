@@ -1,20 +1,22 @@
 @import 'src/App';
 
 .surveys {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   @media (min-width: $mobileDevice) {
     margin: 0 auto;
     max-width: $mobileDevice;
-    padding: 20px;
+    padding: 30px;
+    grid-gap: 30px;
   }
   @media (min-width: $tabletDevice) {
     max-width: $tabletDevice;
-    padding: 26px;
+    padding: 40px;
+    grid-gap: 40px;
   }
   @media (min-width: $desktopDevice) {
     max-width: $desktopDevice;
-    padding: 34px;
+    padding: 50px;
+    grid-gap: 50px;
   }
 }
 
@@ -25,10 +27,6 @@
     max-height: 100px;
     font-size: 20px;
     font-weight: 600;
-    padding-bottom: 20px;
-  }
-  @media (min-width: $tabletDevice) {
-    padding-bottom: 30px;
   }
 }
 
